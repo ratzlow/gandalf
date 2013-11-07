@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="platform-3.5.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.java.dev.jna/platform/3.5.2/jar/beac07d13858ef3697ceeab43897d70aeb5113c9/platform-3.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.java.dev.jna/platform/3.5.2/source/bc6b5158219706865e4a527e2602301286842641/platform-3.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
