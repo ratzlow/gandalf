@@ -63,7 +63,6 @@ public class JournalTest extends AbstractJournalTest {
         final long startIndex = (long) (0.95 * batchCount);
 
         RunFromIndexListener listener = new RunFromIndexListener(startIndex);
-        // TODO (FRa) : (FRa) : comment crunch all info into param config obj of listener
         final Reader reader = journal.createReader( new ReaderStart<ChronicleBatch>(listener, 0, startIndex) );
         ExecutorService consumer = Executors.newSingleThreadExecutor();
         consumer.submit( new Runnable() {

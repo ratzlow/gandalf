@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +19,10 @@ import java.util.Map;
 
 
 /**
- * TODO: comment
+ * Test file usage mimic of Journal. E.g.
+ * - no file must be overriden/deleted
+ * - data within a file must only be added and not overriden
+ * - if journal is full it should throw an exception
  *
  * @author ratzlow@gmail.com
  * @since 2013-11-04
@@ -29,14 +33,37 @@ public class JournalLifeCycleTest {
     @Test
     public void testFindJournalFileIfAlreadyExists() {
         String fileNmae = JournalTestUtil.createLogFileNameRandom("restart");
+        Assert.assertFalse( new File(fileNmae).exists() );
+
+        // start application, no chronicle file is there yet so a new gets created
+        int noWrites = 100;
+        writeBatchToJournal(fileNmae, 0 * noWrites, 1 * noWrites );
+
+        // restart application with same file, so something gets appended in same file
+      //  Assert.assertTrue( new File(fileNmae).exists() );
+        writeBatchToJournal(fileNmae, 1*noWrites, 2*noWrites);
+    }
+
+    private void writeBatchToJournal(String fileNmae, long entriesBefore, long entriesAfter ) {
         Journal journal = new ChronicleJournal(fileNmae, ModelEvent.class);
+        Assert.assertEquals( entriesBefore, journal.getStatistics().getLength() );
         Writer<EventBatch<ModelEvent>> writer = journal.createWriter();
         EventBatch<ModelEvent> batch = createEventBatch();
         writer.start();
-        writer.add( batch );
-//
-//        ReaderStart<EventBatch<ModelEvent>> strategy = createReaderStarter();
-//        journal.createReader(strategy);
+        for ( int i=0; i< entriesAfter - entriesBefore; i++) {
+            writer.add( batch );
+        }
+        Assert.assertEquals( entriesAfter, journal.getStatistics().getLength() );
+        journal.stop();
+    }
+
+    /**
+     * @param pathPrefix
+     * @return true ... if index and data file exist
+     */
+    private boolean chronicleFilesExist(String pathPrefix) {
+        //new File("")
+        return false;
     }
 
     @Before

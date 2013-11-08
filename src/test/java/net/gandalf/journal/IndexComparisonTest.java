@@ -3,10 +3,7 @@ package net.gandalf.journal;
 import net.openhft.chronicle.ChronicleConfig;
 import net.openhft.chronicle.ExcerptAppender;
 import net.openhft.chronicle.IndexedChronicle;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -21,6 +18,7 @@ import java.util.UUID;
  * @author ratzlow@gmail.com
  * @since 2013-11-05
  */
+@Ignore
 public class IndexComparisonTest {
 
     private String basePath = "C:/temp/testChronicle";

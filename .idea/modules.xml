@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/eventsource.iml" filepath="$PROJECT_DIR$/eventsource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gandalf.iml" filepath="$PROJECT_DIR$/gandalf.iml" />
     </modules>
   </component>
 </project>

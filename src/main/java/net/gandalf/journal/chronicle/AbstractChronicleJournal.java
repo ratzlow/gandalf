@@ -16,7 +16,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 
 // TODO (FRa) : (FRa) : is the assumption correct that the index for journals can be restart from zero?
-// TODO (FRa) : (FRa) : or do we have to support (monoton) increasing sequence?
 // TODO (FRa) : (FRa) : do we need to take control of the sequence?
 abstract class AbstractChronicleJournal {
     protected final AtomicBoolean started = new AtomicBoolean(false);
@@ -47,6 +46,8 @@ abstract class AbstractChronicleJournal {
         started.set(true);
         getLogger().info("Chronicle journal started!");
     }
+
+    public boolean isStarted() { return started.get(); }
 
     protected abstract Logger getLogger();
 }

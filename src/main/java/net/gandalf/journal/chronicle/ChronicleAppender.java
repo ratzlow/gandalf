@@ -49,7 +49,7 @@ class ChronicleAppender extends AbstractChronicleJournal implements Writer<Chron
         long size = batch.getSize();
         long excerptSize = size * 4;
 
-        // TODO (FRa) : (FRa) : move journal on at the end and not override from the beginning
+        // TODO (FRa) : (FRa) : add rollover behaviour
         appender.startExcerpt(excerptSize);
         if ( excerptSize > Integer.MAX_VALUE || appender.remaining() < excerptSize ) {
             throw new JournalException("Content of batch to big! Available bytes = " +
@@ -57,12 +57,6 @@ class ChronicleAppender extends AbstractChronicleJournal implements Writer<Chron
         }
 
         long index = appender.index();
-        if ( index != currentIndex.incrementAndGet() ) {
-            String msg = "Sequence is not monoton rising! " +
-                    "expected = " + currentIndex.get() + " actual = " + index;
-            LOGGER.error( msg );
-//            throw new JournalException(msg);
-        }
 
         batch.setIndex( index );
         BytesMarshaller<ChronicleBatch> marshaller =

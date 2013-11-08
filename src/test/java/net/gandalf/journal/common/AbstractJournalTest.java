@@ -32,7 +32,7 @@ public abstract class AbstractJournalTest {
 
 
 
-    protected final static int batchCount = 1000;
+    protected final static int batchCount = 100;
     protected final static int eventsCount = 1000;
     protected static List<ChronicleBatch> producedBatches = new ArrayList<ChronicleBatch>();
     protected List<ChronicleBatch> consumedBatches = new ArrayList<ChronicleBatch>();

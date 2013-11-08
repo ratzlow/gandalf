@@ -1,9 +1,8 @@
 package net.gandalf.journal.chronicle;
 
-import net.gandalf.journal.api.Journal;
-import net.gandalf.journal.api.Reader;
-import net.gandalf.journal.api.ReaderStart;
-import net.gandalf.journal.api.Writer;
+import net.gandalf.journal.api.*;
+import net.openhft.chronicle.Chronicle;
+import net.openhft.chronicle.IndexedChronicle;
 import net.openhft.lang.io.serialization.BytesMarshallable;
 import org.apache.log4j.Logger;
 
@@ -27,10 +26,13 @@ public class ChronicleJournal implements Journal {
     private final List<Reader> readers = Collections.synchronizedList( new ArrayList<Reader>() );
     private final List<Writer> writers = Collections.synchronizedList( new ArrayList<Writer>() );
     private final Class<? extends BytesMarshallable>[] marshallables;
+    private final ChronicleStatistics statistics;
 
     public ChronicleJournal(String fileName, Class<? extends BytesMarshallable> ... marshallables ) {
         this.fileName = fileName;
         this.marshallables = marshallables;
+        statistics = new ChronicleStatistics(fileName);
+        statistics.start();
     }
 
     @Override
@@ -61,5 +63,14 @@ public class ChronicleJournal implements Journal {
             reader.stop();
         }
         LOGGER.info( "Stopped journal readers!" );
+
+        statistics.stop();
+        LOGGER.info( "Stopped statistics!" );
+    }
+
+
+    @Override
+    public JournalStatistics getStatistics() {
+        return statistics.update();
     }
 }

@@ -13,4 +13,6 @@ public interface Journal {
     <T extends EventBatch> Writer<T> createWriter();
 
     void stop();
+
+    JournalStatistics getStatistics();
 }
