@@ -41,7 +41,7 @@ public class JournalLifeCycleTest {
         writeBatchToJournal(fileNmae, 0 * noWrites, 1 * noWrites );
 
         // restart application with same file, so something gets appended in same file
-      //  Assert.assertTrue( new File(fileNmae).exists() );
+        Assert.assertTrue( "before creation of " + fileNmae, chronicleFilesExist( fileNmae ) );
         writeBatchToJournal(fileNmae, 1*noWrites, 2*noWrites);
     }
 
@@ -66,7 +66,9 @@ public class JournalLifeCycleTest {
         File[] files = new File("C:/Temp").listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
-                return name.startsWith(pathPrefix) && (name.endsWith("data") || name.endsWith("index"));
+                String dataName = pathPrefix + ".data";
+                String indexName = pathPrefix + ".index";
+                return dataName.endsWith(name) || indexName.contains(name);
             }
         });
 
