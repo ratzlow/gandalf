@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +34,7 @@ public class JournalLifeCycleTest {
     @Test
     public void testFindJournalFileIfAlreadyExists() {
         String fileNmae = JournalTestUtil.createLogFileNameRandom("restart");
-        Assert.assertFalse( new File(fileNmae).exists() );
+        Assert.assertFalse( "before creation of " + fileNmae, chronicleFilesExist( fileNmae ) );
 
         // start application, no chronicle file is there yet so a new gets created
         int noWrites = 100;
@@ -53,7 +54,7 @@ public class JournalLifeCycleTest {
         for ( int i=0; i< entriesAfter - entriesBefore; i++) {
             writer.add( batch );
         }
-        Assert.assertEquals( entriesAfter, journal.getStatistics().getLength() );
+        Assert.assertEquals(entriesAfter, journal.getStatistics().getLength());
         journal.stop();
     }
 
@@ -61,9 +62,15 @@ public class JournalLifeCycleTest {
      * @param pathPrefix
      * @return true ... if index and data file exist
      */
-    private boolean chronicleFilesExist(String pathPrefix) {
-        //new File("")
-        return false;
+    private boolean chronicleFilesExist( final String pathPrefix) {
+        File[] files = new File("C:/Temp").listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.startsWith(pathPrefix) && (name.endsWith("data") || name.endsWith("index"));
+            }
+        });
+
+        return files.length == 2;
     }
 
     @Before
