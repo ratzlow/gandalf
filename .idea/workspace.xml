@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" line="111" mnemonic="1" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b864915-bdfb-4cf3-9814-9d9869c031b3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java" afterPath="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalLifeCycleTest.java" afterPath="$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalLifeCycleTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/JournalStatistics.java" afterPath="$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/JournalStatistics.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="8b864915-bdfb-4cf3-9814-9d9869c031b3" name="Default" comment="" />
     <ignored path="eventsource.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/ReadWriteMessages.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1374281149970" ignored="false" />
@@ -17,7 +9,7 @@
     <file path="/SampleTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1374269690665" ignored="false" />
     <file path="/a.dummy" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383923122530" ignored="false" />
     <file path="/ListWrapperTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1374280791270" ignored="false" />
-    <file path="/fragment.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383932187113" ignored="false" />
+    <file path="/fragment.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384108780598" ignored="false" />
     <file path="/SimpleReadWritePerfTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1374313781103" ignored="false" />
     <file path="/CompareWritePerfTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1374916052072" ignored="false" />
     <file path="/AbstractPerfTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1375307521673" ignored="false" />
@@ -43,7 +35,7 @@
     <file path="/Journal.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383928458787" ignored="false" />
     <file path="/FileJournal.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380364469508" ignored="false" />
     <file path="/Entry.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382220607621" ignored="false" />
-    <file path="/ChronicleJournal.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383929016448" ignored="false" />
+    <file path="/ChronicleJournal.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384102036294" ignored="false" />
     <file path="/EntryMarshaller.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380407427522" ignored="false" />
     <file path="/ChronicleJournalTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380836904195" ignored="false" />
     <file path="/JournalTestUtil.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383932985805" ignored="false" />
@@ -58,7 +50,7 @@
     <file path="/EventExcerptMarshaller.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380408259410" ignored="false" />
     <file path="/Event.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380410264172" ignored="false" />
     <file path="/EventBatch.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383442434771" ignored="false" />
-    <file path="/Dummy.txt" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383933628466" ignored="false" />
+    <file path="/Dummy.txt" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384121999723" ignored="false" />
     <file path="$PROJECT_DIR$/../Java-Chronicle/pom.xml" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380919490931" ignored="false" />
     <file path="/pom.xml" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1380917755299" ignored="false" />
     <file path="/JournalException.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383599620136" ignored="false" />
@@ -68,28 +60,31 @@
     <file path="/SyncToAsyncTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1381790018232" ignored="false" />
     <file path="/Writer.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383602370563" ignored="false" />
     <file path="/ChronicleJournal_1_Test.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382189416837" ignored="false" />
-    <file path="/AbstractJournalTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383609183136" ignored="false" />
-    <file path="/JournalTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383866006690" ignored="false" />
+    <file path="/AbstractJournalTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384107637301" ignored="false" />
+    <file path="/JournalTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384108470556" ignored="false" />
     <file path="/OrderHubEntryType.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382275260595" ignored="false" />
     <file path="/EventBatch2.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382275947945" ignored="false" />
     <file path="/ChronicleEntry.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382224219703" ignored="false" />
     <file path="/AbstractChronicleJournal.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383928885096" ignored="false" />
     <file path="/ChronicleAppender2.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382227318498" ignored="false" />
     <file path="/ChronicleBatch.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383599599015" ignored="false" />
-    <file path="/ChronicleTailer.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383860779224" ignored="false" />
+    <file path="/ChronicleTailer.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384109820211" ignored="false" />
     <file path="/ChronicleAppender.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383931330193" ignored="false" />
     <file path="/Reader.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383442659970" ignored="false" />
     <file path="/a.groovy" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1382307043471" ignored="false" />
     <file path="/ReadMetaDataTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383259032177" ignored="false" />
     <file path="/schema.ddl.sql" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383254856319" ignored="false" />
-    <file path="/ReaderStart.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383443566630" ignored="false" />
-    <file path="/JournalLifeCycleTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383934724462" ignored="false" />
+    <file path="/ReaderStart.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384101408531" ignored="false" />
+    <file path="/JournalLifeCycleTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384103030168" ignored="false" />
     <file path="/IndexComparisonTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383922921689" ignored="false" />
     <file path="$PROJECT_DIR$/src/test/java/com/gandalf/otex/common/syncfacade/SyncToAsyncTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383866343456" ignored="false" />
     <file path="$PROJECT_DIR$/src/test/java/com/gandalf/common/syncfacade/SyncToAsyncTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383866363540" ignored="false" />
     <file path="$PROJECT_DIR$/src/test/java/com/gandalf/syncfacade/SyncToAsyncTest.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383866492063" ignored="false" />
-    <file path="/ChronicleStatistics.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383934239297" ignored="false" />
+    <file path="/ChronicleStatistics.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384103491587" ignored="false" />
     <file path="/JournalStatistics.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1383925873036" ignored="false" />
+    <file path="/README" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384102594820" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384109832252" ignored="false" />
+    <file path="/MockJournalUpdateListener.java" changelist="8b864915-bdfb-4cf3-9814-9d9869c031b3" time="1384109245028" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +104,7 @@
     <sortChildren value="false" />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -145,38 +141,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/test/java/net/gandalf/h2/ReadMetaDataTest.java" line="32" class="net.gandalf.h2.ReadMetaDataTest" package="net.gandalf.h2">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" line="60" class="net.gandalf.journal.common.AbstractJournalTest$1" package="net.gandalf.journal.common">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/IndexComparisonTest.java" line="122" class="net.gandalf.journal.IndexComparisonTest" package="net.gandalf.journal">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -192,7 +157,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java" line="40" class="net.gandalf.journal.chronicle.ChronicleStatistics" package="net.gandalf.journal.chronicle">
+      <breakpoint url="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java" line="44" class="net.gandalf.journal.chronicle.ChronicleStatistics" package="net.gandalf.journal.chronicle">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -207,7 +172,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleAppender.java" line="68" class="net.gandalf.journal.chronicle.ChronicleAppender" package="net.gandalf.journal.chronicle">
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" line="56" class="net.gandalf.journal.common.AbstractJournalTest$1" package="net.gandalf.journal.common">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -221,6 +186,21 @@
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" line="90" class="net.gandalf.journal.common.AbstractJournalTest" package="net.gandalf.journal.common">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="timeMS == 0&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
@@ -232,82 +212,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ChronicleAppender.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleAppender.java">
+      <file leaf-file-name="JournalTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0">
+            <state line="82" column="95" selection-start="2985" selection-end="2985" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChronicleStatistics.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java">
+      <file leaf-file-name="AbstractJournalTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
+            <state line="90" column="0" selection-start="3241" selection-end="3241" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1633#2115#0" expanded="true" />
+                <element signature="e#2104#2105#0" expanded="true" />
+                <element signature="e#2984#3110#0" expanded="true" />
+                <element signature="e#3099#3100#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexedChronicle.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/IndexedChronicle.java">
+      <file leaf-file-name="build.gradle" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="16" selection-start="4144" selection-end="4144" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#4263#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WrappedExcerpt.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/tools/WrappedExcerpt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="23" selection-start="2513" selection-end="2513" vertical-scroll-proportion="0.0">
+            <state line="3" column="16" selection-start="64" selection-end="64" vertical-scroll-proportion="0.3617021">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExcerptCommon.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/ExcerptCommon.java">
+      <file leaf-file-name="CountDownLatch.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0/src.zip!/java/util/concurrent/CountDownLatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="9" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
+            <state line="305" column="16" selection-start="10150" selection-end="10150" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractChronicleJournal.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/AbstractChronicleJournal.java">
+      <file leaf-file-name="MockJournalUpdateListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/MockJournalUpdateListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="38" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
+            <state line="26" column="8" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JournalLifeCycleTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SyncToAsyncTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/syncfacade/SyncToAsyncTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="0" selection-start="2177" selection-end="2177" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexComparisonTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/IndexComparisonTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChronicleTailer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleTailer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="70" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JournalLifeCycleTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalLifeCycleTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.15925926">
-              <folding>
-                <element signature="e#2356#2588#0" expanded="true" />
-                <element signature="e#2577#2578#0" expanded="true" />
-                <element signature="e#3444#3468#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Journal.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/Journal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="11" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
+            <state line="38" column="45" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -333,6 +318,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -440,22 +426,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/csg/otex/common/eventsource/journal/chronicle/ChronicleJournal.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/csg/otex/common/eventsource/journal/JournalTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/gandalf/otex/common/eventsource/journal/JournalTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/gandalf/common/eventsource/journal/JournalTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/gandalf/journal/JournalTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/IndexComparisonTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/JournalStatistics.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/JournalStatistics.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/Journal.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/AbstractChronicleJournal.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleAppender.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/ReaderStart.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleJournal.java" />
+        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java" />
         <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalLifeCycleTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/MockJournalUpdateListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleTailer.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -489,6 +475,9 @@
           </State>
           <State>
             <id>DeclarationGroovy</id>
+          </State>
+          <State>
+            <id>Error handling</id>
           </State>
           <State>
             <id>Error handlingGroovy</id>
@@ -559,7 +548,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -605,6 +593,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gandalf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="syncfacade" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -799,13 +791,10 @@
               <option name="myItemId" value="journal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -814,7 +803,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.125" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="appearance" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
@@ -822,13 +811,13 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="gradle.tool.window.active" value="Tasks" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -851,35 +840,7 @@
       <recent name="C:\frank\eventsource\src\main\deprecated" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.JournalLifeCycleTest.testFindJournalFileIfAlreadyExists">
-    <configuration default="false" name="net.gandalf.journal.common in gandalf" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="net.gandalf.journal.common.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="gandalf" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.gandalf.journal.common" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.JournalTest">
     <configuration default="false" name="net.gandalf.journal in gandalf" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -932,11 +893,17 @@
       </option>
       <envs />
       <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <configuration default="false" name="JournalLifeCycleTest" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="JournalTest.testSingleProducerManyConsumer" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="net.gandalf.journal.*" />
@@ -947,36 +914,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="net.gandalf.journal" />
-      <option name="MAIN_CLASS_NAME" value="net.gandalf.journal.JournalLifeCycleTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="JournalLifeCycleTest.testFindJournalFileIfAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="net.gandalf.journal.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="gandalf" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="net.gandalf.journal" />
-      <option name="MAIN_CLASS_NAME" value="net.gandalf.journal.JournalLifeCycleTest" />
-      <option name="METHOD_NAME" value="testFindJournalFileIfAlreadyExists" />
+      <option name="MAIN_CLASS_NAME" value="net.gandalf.journal.JournalTest" />
+      <option name="METHOD_NAME" value="testSingleProducerManyConsumer" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -998,6 +937,62 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="net.gandalf in gandalf" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.gandalf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="gandalf" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="net.gandalf" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SyncToAsyncTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="net.gandalf.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="gandalf" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="net.gandalf.syncfacade" />
+      <option name="MAIN_CLASS_NAME" value="net.gandalf.syncfacade.SyncToAsyncTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="" />
       <setting name="path" value="" />
@@ -1013,6 +1008,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -1041,19 +1049,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1122,19 +1117,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.ReadWriteMessages" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.net.gandalf.journal.common in gandalf" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.net.gandalf.journal in gandalf" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.JournalTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.JournalLifeCycleTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.JournalLifeCycleTest.testFindJournalFileIfAlreadyExists" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.net.gandalf.journal in gandalf" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.JournalTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.JournalTest.testSingleProducerManyConsumer" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.net.gandalf in gandalf" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.SyncToAsyncTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.JournalLifeCycleTest.testFindJournalFileIfAlreadyExists" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.JournalLifeCycleTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.JournalTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.JournalTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.SyncToAsyncTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.net.gandalf in gandalf" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.net.gandalf.journal in gandalf" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.net.gandalf.journal.common in gandalf" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.JournalTest.testSingleProducerManyConsumer" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
@@ -1181,7 +1176,19 @@
       <created>1383933551390</created>
       <updated>1383933551390</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added check for file reuse">
+      <created>1383935692388</created>
+      <updated>1383935692388</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added test for chronicle reuse">
+      <created>1384121479992</created>
+      <updated>1384121479992</updated>
+    </task>
+    <task id="LOCAL-00006" summary="removed H2 from project">
+      <created>1384122003612</created>
+      <updated>1384122003612</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1206,31 +1213,31 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.834753" sideWeight="0.3670162" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.67972744" sideWeight="0.3670162" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11534795" sideWeight="0.55531913" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7189097" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891414" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24955224" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.528109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58986926" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63829786" sideWeight="0.6329838" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23033126" sideWeight="0.2076156" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7342419" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48211244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291506" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30227274" sideWeight="0.4770017" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07727273" sideWeight="0.36134455" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5229983" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27045456" sideWeight="0.32027256" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7206133" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57921636" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07727273" sideWeight="0.36134455" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1276,7 +1283,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added first statistics generation interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed H2 from project" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1292,6 +1299,9 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="initial checkin" />
     <MESSAGE value="Added first statistics generation interface" />
+    <MESSAGE value="added check for file reuse" />
+    <MESSAGE value="added test for chronicle reuse" />
+    <MESSAGE value="removed H2 from project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1309,83 +1319,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0/src.zip!/java/lang/SafeVarargs.java">
+    <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="18" selection-start="2671" selection-end="2671" vertical-scroll-proportion="2.1092594">
+        <state line="5" column="97" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/JournalStatistics.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/ReaderStart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="305" selection-end="305" vertical-scroll-proportion="0.38709676">
+        <state line="9" column="18" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleTailer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="11" selection-start="1299" selection-end="1299" vertical-scroll-proportion="0.0">
+        <state line="12" column="20" selection-start="448" selection-end="448" vertical-scroll-proportion="0.38709676">
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/ChronicleConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="88" selection-start="1758" selection-end="1758" vertical-scroll-proportion="0.4686907">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/Writer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="10" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/PrefetchingMappedFileCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="0" selection-start="4666" selection-end="4666" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/AbstractChronicleJournal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="38" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/Journal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="11" selection-start="334" selection-end="334" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/ExcerptCommon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="9" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/tools/WrappedExcerpt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="23" selection-start="2513" selection-end="2513" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/artifacts-26/filestore/net.openhft/chronicle/2.0.2/source/71455d055b39869afdcccf2c4b713b864d1c9104/chronicle-2.0.2-sources.jar!/net/openhft/chronicle/IndexedChronicle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="16" selection-start="4144" selection-end="4144" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#4263#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -1393,24 +1344,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleJournal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="4" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.3314815">
+        <state line="30" column="0" selection-start="1047" selection-end="1047" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleAppender.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/api/Journal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="563" selection-end="563" vertical-scroll-proportion="0.0">
+        <state line="10" column="47" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleStatistics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1423,12 +1365,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalLifeCycleTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1019" selection-end="1019" vertical-scroll-proportion="0.15925926">
+        <state line="38" column="45" selection-start="1176" selection-end="1176" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0/src.zip!/java/util/concurrent/atomic/AtomicLong.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="22" selection-start="2464" selection-end="2464" vertical-scroll-proportion="0.7683824">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/IndexComparisonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/syncfacade/SyncToAsyncTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="2177" selection-end="2177" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/JournalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="95" selection-start="2985" selection-end="2985" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/MockJournalUpdateListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="8" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.7.0/src.zip!/java/util/concurrent/CountDownLatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="305" column="16" selection-start="10150" selection-end="10150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/gandalf/journal/chronicle/ChronicleTailer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="70" selection-start="3065" selection-end="3065" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/net/gandalf/journal/common/AbstractJournalTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="0" selection-start="3241" selection-end="3241" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#2356#2588#0" expanded="true" />
-            <element signature="e#2577#2578#0" expanded="true" />
-            <element signature="e#3444#3468#0" expanded="true" />
+            <element signature="e#1633#2115#0" expanded="true" />
+            <element signature="e#2104#2105#0" expanded="true" />
+            <element signature="e#2984#3110#0" expanded="true" />
+            <element signature="e#3099#3100#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="16" selection-start="64" selection-end="64" vertical-scroll-proportion="0.3617021">
+          <folding />
         </state>
       </provider>
     </entry>
