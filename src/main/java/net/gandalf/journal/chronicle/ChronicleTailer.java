@@ -9,6 +9,7 @@ import net.openhft.lang.io.serialization.BytesMarshaller;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Chronicle Reader process that starts at specified index to inform the listener about events. Works sequentiatlly
@@ -24,6 +25,8 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
     private final JournalUpdateListener<ChronicleBatch> listener;
     private final int timeout;
     private final long startIndex;
+
+    AtomicLong entriesDispatched = new AtomicLong(0);
 
     //
     // constructors
@@ -57,15 +60,18 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
         final BytesMarshaller<ChronicleBatch> marshaller =
                 tailer.bytesMarshallerFactory().acquireMarshaller(ChronicleBatch.class, true);
 
+
         while (started.get()) {
 
             boolean validExcerptFound = tailer.nextIndex();
             if (validExcerptFound) {
                 long currentIndex = tailer.index();
+                LOGGER.info("Read chronicle entry ");
                 if (currentIndex >= startIndex) {
                     ChronicleBatch eventBatch = marshaller.read(tailer);
                     tailer.finish();
                     listener.onEvent(eventBatch);
+                    entriesDispatched.incrementAndGet();
                 }
 
             } else {
@@ -89,6 +95,7 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
 
     @Override
     public void stop() {
+        LOGGER.info("Entries dispatched = " + entriesDispatched.get() );
         super.stop();
     }
 

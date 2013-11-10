@@ -3,9 +3,11 @@ package net.gandalf.journal;
 import net.gandalf.journal.api.*;
 import net.gandalf.journal.chronicle.ChronicleBatch;
 import net.gandalf.journal.chronicle.ChronicleJournal;
+import net.gandalf.journal.chronicle.ChronicleStatistics;
 import net.gandalf.journal.common.JournalTestUtil;
 import net.gandalf.sampleclient.oh.event.DmlType;
 import net.gandalf.sampleclient.oh.event.ModelEvent;
+import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,6 +19,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -30,22 +36,63 @@ import java.util.Map;
  */
 public class JournalLifeCycleTest {
 
+    private final static int NO_WRITES = 1000;
 
+    /**
+     * Writing to same journal subsequently should be happen in sequence and not causing overrides of entries.
+     * Reading from this journal should return all the entries.
+     */
     @Test
-    public void testFindJournalFileIfAlreadyExists() {
+    public void testFindJournalFileIfAlreadyExists() throws InterruptedException {
         String fileNmae = JournalTestUtil.createLogFileNameRandom("restart");
-        Assert.assertFalse( "before creation of " + fileNmae, chronicleFilesExist( fileNmae ) );
+        Assert.assertFalse("before creation of " + fileNmae, chronicleFilesExist(fileNmae));
 
         // start application, no chronicle file is there yet so a new gets created
-        int noWrites = 100;
-        writeBatchToJournal(fileNmae, 0 * noWrites, 1 * noWrites );
+        writeBatchesToJournal(fileNmae, 0, NO_WRITES);
 
         // restart application with same file, so something gets appended in same file
-        Assert.assertTrue( "before creation of " + fileNmae, chronicleFilesExist( fileNmae ) );
-        writeBatchToJournal(fileNmae, 1*noWrites, 2*noWrites);
+        Assert.assertTrue("before creation of " + fileNmae, chronicleFilesExist(fileNmae));
+        writeBatchesToJournal(fileNmae, NO_WRITES, 2 * NO_WRITES);
+
+        // check if it is in sync  with what we retrieve as stats
+        ChronicleStatistics stats = new ChronicleStatistics( fileNmae );
+        Assert.assertEquals( 2* NO_WRITES, stats.update().getLength() );
+
+        // read all entries of the journal written in 2 sequences
+        readBatchesFromJournal(fileNmae);
     }
 
-    private void writeBatchToJournal(String fileNmae, long entriesBefore, long entriesAfter ) {
+    private void readBatchesFromJournal(String fileNmae) throws InterruptedException {
+
+        Journal journal = new ChronicleJournal( fileNmae, ModelEvent.class );
+        final CountDownLatch latch = new CountDownLatch(2* NO_WRITES);
+        JournalUpdateListener<EventBatch<ModelEvent>> listener = new JournalUpdateListener<EventBatch<ModelEvent>>() {
+            Logger LOGGER = Logger.getLogger( getClass() );
+            @Override
+            public void onEvent(EventBatch<ModelEvent> batch) {
+                latch.countDown();
+                Assert.assertFalse(batch.getEntries().isEmpty());
+                long index = batch.getIndex();
+                if ( index > 2*NO_WRITES ) {
+                    LOGGER.error("Found to high index = " + index );
+                }
+            }
+        };
+        final Reader reader = journal.createReader(new ReaderStart<EventBatch<ModelEvent>>(listener));
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                reader.start();
+            }
+        });
+
+        Assert.assertTrue(latch.await(500, TimeUnit.MILLISECONDS));
+        journal.stop();
+    }
+
+    private void writeBatchesToJournal(String fileNmae, long entriesBefore, long entriesAfter) {
         Journal journal = new ChronicleJournal(fileNmae, ModelEvent.class);
         Assert.assertEquals( entriesBefore, journal.getStatistics().getLength() );
         Writer<EventBatch<ModelEvent>> writer = journal.createWriter();
@@ -59,7 +106,6 @@ public class JournalLifeCycleTest {
     }
 
     /**
-     * @param pathPrefix
      * @return true ... if index and data file exist
      */
     private boolean chronicleFilesExist( final String pathPrefix) {
@@ -92,18 +138,5 @@ public class JournalLifeCycleTest {
         attributes.put("gaotag", "ZR77:131021:12");
         entries.add( new ModelEvent(DmlType.INSERT, "hub_order", attributes ) );
         return new ChronicleBatch<ModelEvent>( entries, ModelEvent.class );
-    }
-
-    private ReaderStart<EventBatch<ModelEvent>> createReaderStarter() {
-
-        JournalUpdateListener<EventBatch<ModelEvent>> listener =
-                new JournalUpdateListener<EventBatch<ModelEvent>>() {
-            @Override
-            public void onEvent(EventBatch<ModelEvent> batch) {
-                Assert.assertNotNull( batch );
-                Assert.assertTrue(batch.getEntries().isEmpty());
-            }
-        };
-        return new ReaderStart<EventBatch<ModelEvent>>(listener);
     }
 }

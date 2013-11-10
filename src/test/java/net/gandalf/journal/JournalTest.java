@@ -49,7 +49,7 @@ public class JournalTest extends AbstractJournalTest {
         producerDuration = writeToJournal(journal);
         runConsumer(journal, 1 );
         runConsumer(journal, 2 );
-        runConsumer(journal, 3);
+        runConsumer(journal, 3 );
 
         journal.stop();
     }
@@ -80,6 +80,7 @@ public class JournalTest extends AbstractJournalTest {
         final AtomicLong nanos = new AtomicLong(0);
         final CountDownLatch latch;
         final long startIndex;
+        // does not neccessarily be number of elements, since padding might cause gaps in index
         long expectedInvokedIndex;
 
         private RunFromIndexListener(long startIndex) {
@@ -109,7 +110,7 @@ public class JournalTest extends AbstractJournalTest {
             consumerDurations.put("Consumer_1", nanos.get() / 1e6);
 
             // check we were notified up to the last event of the created batches
-            Assert.assertEquals( batchCount, expectedInvokedIndex);
+            Assert.assertTrue( batchCount <= expectedInvokedIndex);
         }
     }
 

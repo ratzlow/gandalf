@@ -1,1 +1,6 @@
 Provide a Journal to read write entries asynchronously. Build on top of Chronicle.
+
+Open questions
+==============
+Exception propagation ... why are exceptions I throw not rippled up?
+What is the difference of creating multiple Tailors/Appenders from single or multiple Chronicles?

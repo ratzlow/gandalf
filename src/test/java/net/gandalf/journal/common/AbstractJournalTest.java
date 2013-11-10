@@ -25,15 +25,8 @@ public abstract class AbstractJournalTest {
 
     private static final Logger LOGGER = Logger.getLogger(AbstractJournalTest.class);
 
-
-    public static int KB = 1024;
-    public static int MB = KB * 1024;
-    public static int GB = MB * 1024;
-
-
-
-    protected final static int batchCount = 100;
-    protected final static int eventsCount = 1000;
+    protected final static int batchCount = 1000;
+    protected final static int eventsCount = 100;
     protected static List<ChronicleBatch> producedBatches = new ArrayList<ChronicleBatch>();
     protected List<ChronicleBatch> consumedBatches = new ArrayList<ChronicleBatch>();
 
@@ -52,7 +45,6 @@ public abstract class AbstractJournalTest {
         final Writer<ChronicleBatch> writer = journal.createWriter();
         writer.start();
         producer.submit(new Runnable() {
-            private long id = -1 ;
             @Override
             public void run() {
                 long startProducer = System.nanoTime();
@@ -93,25 +85,14 @@ public abstract class AbstractJournalTest {
             }
         });
 
-        listener.latch.await(10, TimeUnit.SECONDS);
-        return listener.duration.get();
+        listener.latch.await(12, TimeUnit.SECONDS);
+        consumer.shutdown();
+        long timeMS = listener.getDuration();
+        Assert.assertTrue( "Could not find duration for reading the journal!", timeMS > 0 );
+        return timeMS;
     }
 
-    protected static class MockJournalUpdateListener implements JournalUpdateListener<ChronicleBatch> {
-        final CountDownLatch latch = new CountDownLatch(batchCount);
-        final AtomicLong duration = new AtomicLong(0);
-        final long startNS = System.nanoTime();
 
-        @Override
-        public void onEvent(ChronicleBatch batch) {
-            latch.countDown();
-            if ( latch.getCount() == 0 ) {
-                long durationMS = (long) ((System.nanoTime() - startNS) / 1e6);
-                duration.set(durationMS);
-            }
-            Assert.assertEquals( eventsCount, batch.getEntries().size() );
-        }
-    }
 
     @AfterClass
     public static void cleanup() {
@@ -141,8 +122,9 @@ public abstract class AbstractJournalTest {
         StringBuilder sb = new StringBuilder("Consumer finished after ms = ");
         for (Map.Entry<String, Double> entry : consumerDurations.entrySet()) {
             Double value = entry.getValue();
-            sb.append( "[" + entry.getKey() + " = " + value + "] ");
-            Assert.assertTrue( "Duration must be longer than '0' but was ms = " + value, value > 0 );
+            String consumerMsg = "[" + entry.getKey() + " = " + value + "] ";
+            sb.append(consumerMsg);
+            Assert.assertTrue( "Consumer duration must be longer than '0'! " + consumerMsg, value > 0 );
         }
         LOGGER.info(sb.toString());
     }

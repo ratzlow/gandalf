@@ -6,6 +6,7 @@ package net.gandalf.journal.api;
  * @author ratzlow@gmail.com
  * @since 2013-11-03
  */
+// TODO: remove generics from class
 public class ReaderStart<E extends EventBatch> {
     private final JournalUpdateListener<E> listener;
     private final int timeout;
