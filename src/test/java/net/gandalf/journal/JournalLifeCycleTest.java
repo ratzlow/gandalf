@@ -108,13 +108,14 @@ public class JournalLifeCycleTest {
     /**
      * @return true ... if index and data file exist
      */
+    // TODO (FRa) : (FRa) : rewrite this file filter -> ugly
     private boolean chronicleFilesExist( final String pathPrefix) {
         File[] files = new File("C:/Temp").listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 String dataName = pathPrefix + ".data";
                 String indexName = pathPrefix + ".index";
-                return dataName.endsWith(name) || indexName.contains(name);
+                return name.contains("delete") && dataName.endsWith(name) || indexName.endsWith(name);
             }
         });
 
