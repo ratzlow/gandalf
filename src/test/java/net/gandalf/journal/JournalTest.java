@@ -8,7 +8,7 @@ import net.gandalf.journal.chronicle.ChronicleBatch;
 import net.gandalf.journal.chronicle.ChronicleJournal;
 import net.gandalf.journal.common.AbstractJournalTest;
 import net.gandalf.journal.common.JournalTestUtil;
-import net.gandalf.sampleclient.oh.event.ModelEvent;
+import net.gandalf.journal.sample.mapevent.SimpleModelEvent;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class JournalTest extends AbstractJournalTest {
     @Test
     public void testSingleProducerSingleConsumer() throws InterruptedException {
 
-        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), ModelEvent.class);
+        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), SimpleModelEvent.class);
         producerDuration = writeToJournal(journal);
         runConsumer(journal, 1);
 
@@ -44,7 +44,7 @@ public class JournalTest extends AbstractJournalTest {
 
     @Test
     public void testSingleProducerManyConsumer() throws InterruptedException {
-        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), ModelEvent.class );
+        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), SimpleModelEvent.class );
 
         producerDuration = writeToJournal(journal);
         runConsumer(journal, 1 );

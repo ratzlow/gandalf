@@ -1,4 +1,4 @@
-package net.gandalf.sampleclient.oh.event;
+package net.gandalf.journal.sample.mapevent;
 
 import net.gandalf.journal.api.Entry;
 import net.gandalf.journal.api.EntryType;
@@ -10,7 +10,7 @@ import net.gandalf.journal.api.EntryType;
  * @since 2013-10-20
  */
 public enum OrderHubEntryType implements EntryType {
-    MODEL_UPDATE(ModelEvent.class);
+    MODEL_UPDATE(SimpleModelEvent.class);
 
     //
     // private attributes

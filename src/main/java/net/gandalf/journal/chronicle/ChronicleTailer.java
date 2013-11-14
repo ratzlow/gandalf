@@ -21,12 +21,13 @@ import java.util.concurrent.atomic.AtomicLong;
 class ChronicleTailer extends AbstractChronicleJournal implements Reader {
     private static final Logger LOGGER = Logger.getLogger(ChronicleTailer.class);
 
+    private final AtomicLong entriesDispatched = new AtomicLong(0);
+
     private final ExcerptTailer tailer;
     private final JournalUpdateListener<ChronicleBatch> listener;
     private final int timeout;
     private final long startIndex;
 
-    AtomicLong entriesDispatched = new AtomicLong(0);
 
     //
     // constructors
@@ -60,16 +61,17 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
         final BytesMarshaller<ChronicleBatch> marshaller =
                 tailer.bytesMarshallerFactory().acquireMarshaller(ChronicleBatch.class, true);
 
-
         while (started.get()) {
 
             boolean validExcerptFound = tailer.nextIndex();
             if (validExcerptFound) {
                 long currentIndex = tailer.index();
-                LOGGER.info("Read chronicle entry ");
                 if (currentIndex >= startIndex) {
                     ChronicleBatch eventBatch = marshaller.read(tailer);
                     tailer.finish();
+                    if ( LOGGER.isDebugEnabled() ) {
+                        LOGGER.debug("Process batch.index=" + eventBatch.getIndex() );
+                    }
                     listener.onEvent(eventBatch);
                     entriesDispatched.incrementAndGet();
                 }

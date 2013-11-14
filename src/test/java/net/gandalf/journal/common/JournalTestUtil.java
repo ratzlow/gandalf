@@ -1,8 +1,8 @@
 package net.gandalf.journal.common;
 
 import net.gandalf.journal.chronicle.ChronicleBatch;
-import net.gandalf.sampleclient.oh.event.DmlType;
-import net.gandalf.sampleclient.oh.event.ModelEvent;
+import net.gandalf.journal.sample.mapevent.DmlType;
+import net.gandalf.journal.sample.mapevent.SimpleModelEvent;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -27,8 +27,8 @@ public abstract class JournalTestUtil {
         long start = System.currentTimeMillis();
         List<ChronicleBatch> batches = new ArrayList<ChronicleBatch>();
         for (int i=0; i<batchCount; i++) {
-            List<ModelEvent> events = new ArrayList<ModelEvent>(createEvents(eventsCount));
-            batches.add( new ChronicleBatch<ModelEvent>(events, ModelEvent.class) );
+            List<SimpleModelEvent> events = new ArrayList<SimpleModelEvent>(createEvents(eventsCount));
+            batches.add( new ChronicleBatch<SimpleModelEvent>(events, SimpleModelEvent.class) );
         }
         LOGGER.info("Created " + batchCount + " batches in ms = " + (System.currentTimeMillis() - start));
         return batches;
@@ -58,15 +58,14 @@ public abstract class JournalTestUtil {
     }
 
 
-    private static Collection<ModelEvent> createEvents( int eventsCount ) {
-        Collection<ModelEvent> events = new ArrayList<ModelEvent>();
+    private static Collection<SimpleModelEvent> createEvents( int eventsCount ) {
+        Collection<SimpleModelEvent> events = new ArrayList<SimpleModelEvent>();
         long start = System.nanoTime();
         for (int i = 0; i < eventsCount; i++) {
             Map<String, String> attributes = new HashMap<String, String>();
             attributes.put("id", toString(i) );
             attributes.put("size", toString(87) );
             attributes.put("luser", "frank");
-            attributes.put("ouser", "ofip");
             attributes.put("stext", "RV:invalidPrice");
             attributes.put("delayed_ask", toString( BigDecimal.valueOf(99.585)) );
             attributes.put("delayed_bid", toString(BigDecimal.valueOf(2299.989)) );
@@ -74,12 +73,14 @@ public abstract class JournalTestUtil {
             attributes.put("fqdone", toString(100) );
             attributes.put("state", "PCXL");
             attributes.put("ouser", "ofip");
-            attributes.put("stext", "RV:invalidPrice");
+            attributes.put("anothertext", "RV:invalidPrice");
             attributes.put("fsize", toString(1000) );
             attributes.put("ostamp", toString(new Timestamp(System.currentTimeMillis())) );
             attributes.put("ask_price", toString(BigDecimal.valueOf(87.8)) );
+            attributes.put("bid_price", toString(BigDecimal.valueOf(105.8)) );
+            attributes.put("null_attribute", null );
 
-            ModelEvent event = new ModelEvent( DmlType.INSERT, "HubOrder", attributes );
+            SimpleModelEvent event = new SimpleModelEvent( DmlType.INSERT, "HubOrder", attributes );
             events.add( event);
         }
 //        LOGGER.info("Creating " + eventsCount + " events took ms = " + (System.nanoTime() - start) / 1e6);

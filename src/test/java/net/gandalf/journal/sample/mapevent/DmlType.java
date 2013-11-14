@@ -1,4 +1,4 @@
-package net.gandalf.sampleclient.oh.event;
+package net.gandalf.journal.sample.mapevent;
 
 /**
  * TODO: comment

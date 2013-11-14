@@ -18,4 +18,5 @@ dependencies {
     compile 'net.openhft:chronicle:2.0.2'
     compile 'net.openhft:lang:6.0.2'
     testCompile 'junit:junit:4.11'
+    testCompile 'org.apache.commons:commons-lang3:3.0'
 }

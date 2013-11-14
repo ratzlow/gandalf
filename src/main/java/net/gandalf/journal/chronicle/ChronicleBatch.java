@@ -71,7 +71,7 @@ public class ChronicleBatch<E extends ChronicleEntry>
     }
 
     public long getSize() {
-        int size =0;
+        int size = getClass().getCanonicalName().length();
         for (E event : entries) {
             size += event.getSize();
         }

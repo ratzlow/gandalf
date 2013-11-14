@@ -9,7 +9,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * // TODO: comment
  */
-class MockJournalUpdateListener implements JournalUpdateListener<ChronicleBatch> {
+public class MockJournalUpdateListener implements JournalUpdateListener<ChronicleBatch> {
     final CountDownLatch latch = new CountDownLatch(AbstractJournalTest.batchCount);
     // todo: how fixing this visibility issue?
     private volatile long duration = 0;

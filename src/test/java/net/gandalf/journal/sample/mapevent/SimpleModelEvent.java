@@ -1,4 +1,4 @@
-package net.gandalf.sampleclient.oh.event;
+package net.gandalf.journal.sample.mapevent;
 
 
 import net.gandalf.journal.api.EntryType;
@@ -16,14 +16,14 @@ import java.util.Map;
  * @author ratzlow@gmail.com
  * @since 2013-09-28
  */
-public class ModelEvent implements ChronicleEntry, BytesMarshallable {
+public class SimpleModelEvent implements ChronicleEntry, BytesMarshallable {
 
     private DmlType dmlType;
     private String entityName;
     private Map<String, String> attributes;
     private int size = 0;
 
-    public ModelEvent(DmlType dmlType, String entityName, Map<String, String> attributes) {
+    public SimpleModelEvent(DmlType dmlType, String entityName, Map<String, String> attributes) {
         this.dmlType = dmlType;
         this.entityName = entityName;
         this.attributes = attributes;
@@ -44,7 +44,7 @@ public class ModelEvent implements ChronicleEntry, BytesMarshallable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ModelEvent{");
+        final StringBuilder sb = new StringBuilder("SimpleModelEvent{");
         sb.append("dmlType=").append(dmlType);
         sb.append(", entityName='").append(entityName).append('\'');
         sb.append(", attributes=").append(attributes);
@@ -59,6 +59,7 @@ public class ModelEvent implements ChronicleEntry, BytesMarshallable {
             dmlType = in.readEnum(DmlType.class);
             entityName = in.readUTF();
             in.readMap(attributes, String.class, String.class);
+            size = initSize();
         } catch (Exception e) {
             e.printStackTrace();
         }
