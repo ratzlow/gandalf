@@ -20,6 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 class ChronicleTailer extends AbstractChronicleJournal implements Reader {
     private static final Logger LOGGER = Logger.getLogger(ChronicleTailer.class);
+    private static final boolean DEBUG_ON = LOGGER.isDebugEnabled();
 
     private final AtomicLong entriesDispatched = new AtomicLong(0);
 
@@ -62,28 +63,39 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
                 tailer.bytesMarshallerFactory().acquireMarshaller(ChronicleBatch.class, true);
 
         while (started.get()) {
+            try {
+                readChronicle(marshaller);
+            } catch (Exception e) {
+                LOGGER.error("Read on chronicle failed.", e );
+            }
+        }
+    }
 
-            boolean validExcerptFound = tailer.nextIndex();
-            if (validExcerptFound) {
-                long currentIndex = tailer.index();
-                if (currentIndex >= startIndex) {
-                    ChronicleBatch eventBatch = marshaller.read(tailer);
-                    tailer.finish();
-                    if ( LOGGER.isDebugEnabled() ) {
-                        LOGGER.debug("Process batch.index=" + eventBatch.getIndex() );
-                    }
-                    listener.onEvent(eventBatch);
-                    entriesDispatched.incrementAndGet();
+
+    private void readChronicle(final BytesMarshaller<ChronicleBatch> marshaller) {
+
+        boolean validExcerptFound = tailer.nextIndex();
+        if (validExcerptFound) {
+            long currentIndex = tailer.index();
+            if (currentIndex >= startIndex) {
+                ChronicleBatch eventBatch = marshaller.read(tailer);
+                tailer.finish();
+
+                if ( DEBUG_ON ) {
+                    LOGGER.debug("Process batch.index=" + eventBatch.getIndex() );
                 }
 
-            } else {
+                listener.onEvent(eventBatch);
+                entriesDispatched.incrementAndGet();
+            }
 
-                if (timeout > 0) {
-                    try {
-                        Thread.sleep(timeout);
-                    } catch (InterruptedException e) {
-                        throw new JournalException(e);
-                    }
+        } else {
+
+            if (timeout > 0) {
+                try {
+                    Thread.sleep(timeout);
+                } catch (InterruptedException e) {
+                    throw new JournalException(e);
                 }
             }
         }

@@ -21,10 +21,16 @@ class ChronicleAppender extends AbstractChronicleJournal implements Writer<Chron
 
     private static final Logger LOGGER = Logger.getLogger(ChronicleAppender.class);
 
+    // TODO: expose it for statistics
+    private final AtomicLong currentIndex = new AtomicLong(0);
     private final ExcerptAppender appender;
 
-    private final AtomicLong currentIndex = new AtomicLong(0);
-
+    /**
+     * Writer to the chronicle.
+     *
+     * @param fileName where to write to
+     * @param marshallables classes to be registered as being suitable for chronicles streaming
+     */
     ChronicleAppender(String fileName, Class<? extends BytesMarshallable> ... marshallables ) {
         super(fileName);
         try {
@@ -39,6 +45,9 @@ class ChronicleAppender extends AbstractChronicleJournal implements Writer<Chron
         }
     }
 
+    //
+    // public API
+    //
 
     @Override
     public long add(ChronicleBatch batch) {

@@ -1,7 +1,6 @@
 package net.gandalf.journal.sample.mapevent;
 
 
-import net.gandalf.journal.api.EntryType;
 import net.gandalf.journal.chronicle.ChronicleEntry;
 import net.openhft.lang.io.Bytes;
 import net.openhft.lang.io.serialization.BytesMarshallable;
@@ -70,11 +69,6 @@ public class SimpleModelEvent implements ChronicleEntry, BytesMarshallable {
         out.writeEnum(dmlType);
         out.writeUTF(entityName);
         out.writeMap(attributes);
-    }
-
-    @Override
-    public EntryType getEntryType() {
-        return OrderHubEntryType.MODEL_UPDATE;
     }
 
     /**

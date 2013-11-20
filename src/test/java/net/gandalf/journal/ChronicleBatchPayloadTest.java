@@ -23,6 +23,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author ratzlow@gmail.com
  * @since 2013-11-14
  */
+// TODO: add test case for pause on producer side of n sec and pickup of events after this delay; consumer idles for a while
 public class ChronicleBatchPayloadTest extends AbstractJournalTest {
 
     private static final Logger LOGGER = Logger.getLogger( ChronicleBatchPayloadTest.class );
@@ -87,7 +88,6 @@ public class ChronicleBatchPayloadTest extends AbstractJournalTest {
         void compareEvent(SimpleModelEvent expected, SimpleModelEvent actual) {
             Assert.assertEquals( expected.getDmlType(), actual.getDmlType() );
             Assert.assertEquals( expected.getEntityName(), actual.getEntityName() );
-            Assert.assertEquals( expected.getEntryType(), actual.getEntryType() );
             Assert.assertEquals( expected.getSize(), actual.getSize() );
             Assert.assertEquals( expected.getAttributes().size(), actual.getAttributes().size() );
             for (String key : actual.getAttributes().keySet()) {

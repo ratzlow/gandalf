@@ -1,6 +1,5 @@
 package net.gandalf.journal.sample.obj2journal;
 
-import net.gandalf.journal.api.EntryType;
 import net.gandalf.journal.api.JournalException;
 import net.gandalf.journal.chronicle.ChronicleEntry;
 import net.openhft.lang.io.Bytes;
@@ -49,8 +48,4 @@ public class FastModelEvent implements ChronicleEntry, BytesMarshallable {
         return getClass().getCanonicalName().length();
     }
 
-    @Override
-    public EntryType getEntryType() {
-        return null;
-    }
 }
