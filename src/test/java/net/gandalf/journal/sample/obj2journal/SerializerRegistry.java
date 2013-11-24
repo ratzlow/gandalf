@@ -99,13 +99,13 @@ public class SerializerRegistry {
         };
 
         for ( ModelDD attribute : ModelDD.values()) {
-            if      ( attribute.getClazz().equals(Integer.class)) valueReaders.put( attribute, intReader );
-            else if ( attribute.getClazz().equals(Long.class)) valueReaders.put( attribute, longReader );
-            else if ( attribute.getClazz().equals(String.class)) valueReaders.put( attribute, stringReader );
-            else if ( attribute.getClazz().equals(BigDecimal.class)) valueReaders.put( attribute, bigDecReader );
-            else if ( attribute.getClazz().equals(Timestamp.class)) valueReaders.put( attribute, timestampReader );
-            else if ( attribute.getClazz().equals(OrderState.class)) valueReaders.put( attribute, orderStateReader );
-            else throw new JournalException("No mapping for " + attribute + " -> " + attribute.getClazz());
+            if      ( attribute.getValueClazz().equals(Integer.class)) valueReaders.put( attribute, intReader );
+            else if ( attribute.getValueClazz().equals(Long.class)) valueReaders.put( attribute, longReader );
+            else if ( attribute.getValueClazz().equals(String.class)) valueReaders.put( attribute, stringReader );
+            else if ( attribute.getValueClazz().equals(BigDecimal.class)) valueReaders.put( attribute, bigDecReader );
+            else if ( attribute.getValueClazz().equals(Timestamp.class)) valueReaders.put( attribute, timestampReader );
+            else if ( attribute.getValueClazz().equals(OrderState.class)) valueReaders.put( attribute, orderStateReader );
+            else throw new JournalException("No mapping for " + attribute + " -> " + attribute.getValueClazz());
         }
     }
 

@@ -1,7 +1,7 @@
-package net.gandalf.journal.chronicle;
+package net.gandalf.journal.common;
 
-import net.gandalf.journal.api.EventBatch;
 import net.gandalf.journal.api.JournalException;
+import net.gandalf.journal.sample.mapevent.Sizeable;
 import net.openhft.lang.io.Bytes;
 import net.openhft.lang.io.serialization.BytesMarshallable;
 
@@ -14,8 +14,7 @@ import java.util.List;
  * @author ratzlow@gmail.com
  * @since 2013-10-03
  */
-public class ChronicleBatch<E extends ChronicleEntry>
-        implements EventBatch<E>, BytesMarshallable {
+public class DefaultChronicleBatch<E extends Sizeable> implements BytesMarshallable {
 
     private List<E> entries;
     private Class<E> clazz;
@@ -25,7 +24,7 @@ public class ChronicleBatch<E extends ChronicleEntry>
     // constructors
     //
 
-    public ChronicleBatch(List<E> entries, Class<E> clazz) {
+    public DefaultChronicleBatch(List<E> entries, Class<E> clazz) {
         this.entries = entries;
         this.clazz = clazz;
     }
@@ -60,22 +59,19 @@ public class ChronicleBatch<E extends ChronicleEntry>
         }
     }
 
-    @Override
     public List<E> getEntries() {
         return entries;
     }
 
-    @Override
     public long getIndex() {
         return index;
     }
 
     public long getSize() {
         int size = getClass().getCanonicalName().length();
-        for (E event : entries) {
+        for (E event : getEntries() ) {
             size += event.getSize();
         }
-
         return size;
     }
 

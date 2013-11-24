@@ -6,7 +6,6 @@ package net.gandalf.journal.api;
  * @author ratzlow@gmail.com
  * @since 2013-09-28
  */
-public interface JournalUpdateListener<T extends EventBatch> {
-
+public interface JournalUpdateListener<T> {
     void onEvent( T batch );
 }

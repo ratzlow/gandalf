@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * @author ratzlow@gmail.com
  * @since 2013-11-12
  */
-public enum ModelDD {
+public enum ModelDD implements Attribute {
 
     ID(Long.class),
     SIZE(Integer.class),
@@ -32,7 +32,7 @@ public enum ModelDD {
         this.clazz = clazz;
     }
 
-    public Class<?> getClazz() {
+    public Class<?> getValueClazz() {
         return clazz;
     }
 }

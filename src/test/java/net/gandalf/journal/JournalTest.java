@@ -4,7 +4,9 @@ import net.gandalf.journal.api.Journal;
 import net.gandalf.journal.api.JournalUpdateListener;
 import net.gandalf.journal.api.Reader;
 import net.gandalf.journal.api.ReaderStart;
-import net.gandalf.journal.chronicle.ChronicleBatch;
+import net.gandalf.journal.common.DefaultChronicleBatch;
+import net.gandalf.journal.chronicle.BatchDecoratorRegistry;
+import net.gandalf.journal.chronicle.ChronicleBatchDecorator;
 import net.gandalf.journal.chronicle.ChronicleJournal;
 import net.gandalf.journal.common.AbstractJournalTest;
 import net.gandalf.journal.common.JournalTestUtil;
@@ -18,6 +20,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
+
+import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleBatchRegistry;
 
 /**
  * Check basic funcationality of reading/writing to a journal.
@@ -34,7 +38,10 @@ public class JournalTest extends AbstractJournalTest {
     @Test
     public void testSingleProducerSingleConsumer() throws InterruptedException {
 
-        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), SimpleModelEvent.class);
+        String randomFileName = JournalTestUtil.createLogFileNameRandom(this.fileName);
+
+        BatchDecoratorRegistry registry = createDefaultChronicleBatchRegistry();
+        final Journal journal = new ChronicleJournal(randomFileName, registry );
         producerDuration = writeToJournal(journal);
         runConsumer(journal, 1);
 
@@ -44,7 +51,8 @@ public class JournalTest extends AbstractJournalTest {
 
     @Test
     public void testSingleProducerManyConsumer() throws InterruptedException {
-        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName), SimpleModelEvent.class );
+        String randomFileName = JournalTestUtil.createLogFileNameRandom(fileName);
+        final Journal journal = new ChronicleJournal( randomFileName, createDefaultChronicleBatchRegistry() );
 
         producerDuration = writeToJournal(journal);
         runConsumer(journal, 1 );
@@ -56,14 +64,15 @@ public class JournalTest extends AbstractJournalTest {
 
     @Test
     public void testReplayConsumerFromGivenIndex() throws InterruptedException {
-        final Journal journal = new ChronicleJournal( JournalTestUtil.createLogFileNameRandom(fileName) );
+        String randomeFileName = JournalTestUtil.createLogFileNameRandom(fileName);
+        final Journal journal = new ChronicleJournal(randomeFileName, createDefaultChronicleBatchRegistry() );
 
         producerDuration = writeToJournal(journal);
 
         final long startIndex = (long) (0.95 * batchCount);
 
         RunFromIndexListener listener = new RunFromIndexListener(startIndex);
-        final Reader reader = journal.createReader( new ReaderStart<ChronicleBatch>(listener, 0, startIndex) );
+        final Reader reader = journal.createReader( new ReaderStart(listener, 0, startIndex) );
         ExecutorService consumer = Executors.newSingleThreadExecutor();
         consumer.submit( new Runnable() {
             @Override
@@ -76,7 +85,7 @@ public class JournalTest extends AbstractJournalTest {
         journal.stop();
     }
 
-    private class RunFromIndexListener implements JournalUpdateListener<ChronicleBatch> {
+    private class RunFromIndexListener implements JournalUpdateListener<DefaultChronicleBatch> {
         final AtomicLong nanos = new AtomicLong(0);
         final CountDownLatch latch;
         final long startIndex;
@@ -90,7 +99,7 @@ public class JournalTest extends AbstractJournalTest {
         }
 
         @Override
-        public void onEvent(ChronicleBatch batch) {
+        public void onEvent(DefaultChronicleBatch batch) {
             long start = System.nanoTime();
             latch.countDown();
             long index = batch.getIndex();

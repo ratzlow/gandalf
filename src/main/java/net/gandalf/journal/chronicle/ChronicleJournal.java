@@ -25,26 +25,26 @@ public class ChronicleJournal implements Journal {
     private final String fileName;
     private final List<Reader> readers = Collections.synchronizedList( new ArrayList<Reader>() );
     private final List<Writer> writers = Collections.synchronizedList( new ArrayList<Writer>() );
-    private final Class<? extends BytesMarshallable>[] marshallables;
+    private final BatchDecoratorRegistry decoratorRegistry;
     private final ChronicleStatistics statistics;
 
-    public ChronicleJournal(String fileName, Class<? extends BytesMarshallable> ... marshallables ) {
+    public ChronicleJournal(String fileName, BatchDecoratorRegistry decoratorRegistry ) {
         this.fileName = fileName;
-        this.marshallables = marshallables;
+        this.decoratorRegistry = decoratorRegistry;
         statistics = new ChronicleStatistics(fileName);
         statistics.start();
     }
 
     @Override
     public Reader createReader(ReaderStart strategy) {
-        ChronicleTailer tailer = new ChronicleTailer( fileName, strategy);
+        ChronicleTailer tailer = new ChronicleTailer( fileName, decoratorRegistry, strategy);
         readers.add( tailer );
         return tailer;
     }
 
     @Override
     public Writer createWriter() {
-        ChronicleAppender writer = new ChronicleAppender( fileName, marshallables );
+        ChronicleAppender writer = new ChronicleAppender( fileName, decoratorRegistry );
         writers.add( writer );
         return writer;
     }

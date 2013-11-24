@@ -1,7 +1,7 @@
 package net.gandalf.journal;
 
 import net.gandalf.journal.api.*;
-import net.gandalf.journal.chronicle.ChronicleBatch;
+import net.gandalf.journal.common.DefaultChronicleBatch;
 import net.gandalf.journal.chronicle.ChronicleJournal;
 import net.gandalf.journal.chronicle.ChronicleStatistics;
 import net.gandalf.journal.common.JournalTestUtil;
@@ -23,6 +23,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+
+import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleBatchRegistry;
 
 
 /**
@@ -64,12 +66,13 @@ public class JournalLifeCycleTest {
 
     private void readBatchesFromJournal(String fileNmae) throws InterruptedException {
 
-        Journal journal = new ChronicleJournal( fileNmae, SimpleModelEvent.class );
+        Journal journal = new ChronicleJournal( fileNmae, createDefaultChronicleBatchRegistry() );
         final CountDownLatch latch = new CountDownLatch(2* NO_WRITES);
-        JournalUpdateListener<EventBatch<SimpleModelEvent>> listener = new JournalUpdateListener<EventBatch<SimpleModelEvent>>() {
+        JournalUpdateListener<DefaultChronicleBatch<SimpleModelEvent>> listener =
+                new JournalUpdateListener<DefaultChronicleBatch<SimpleModelEvent>>() {
             Logger LOGGER = Logger.getLogger( getClass() );
             @Override
-            public void onEvent(EventBatch<SimpleModelEvent> batch) {
+            public void onEvent(DefaultChronicleBatch<SimpleModelEvent> batch) {
                 latch.countDown();
                 Assert.assertFalse(batch.getEntries().isEmpty());
                 long index = batch.getIndex();
@@ -78,7 +81,7 @@ public class JournalLifeCycleTest {
                 }
             }
         };
-        final Reader reader = journal.createReader(new ReaderStart<EventBatch<SimpleModelEvent>>(listener));
+        final Reader reader = journal.createReader(new ReaderStart(listener));
 
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.submit(new Runnable() {
@@ -93,10 +96,10 @@ public class JournalLifeCycleTest {
     }
 
     private void writeBatchesToJournal(String fileNmae, long entriesBefore, long entriesAfter) {
-        Journal journal = new ChronicleJournal(fileNmae, SimpleModelEvent.class);
+        Journal journal = new ChronicleJournal(fileNmae, createDefaultChronicleBatchRegistry() );
         Assert.assertEquals( entriesBefore, journal.getStatistics().getLength() );
-        Writer<EventBatch<SimpleModelEvent>> writer = journal.createWriter();
-        EventBatch<SimpleModelEvent> batch = createEventBatch();
+        Writer writer = journal.createWriter();
+        DefaultChronicleBatch<SimpleModelEvent> batch = createEventBatch();
         writer.start();
         for ( int i=0; i< entriesAfter - entriesBefore; i++) {
             writer.add( batch );
@@ -132,12 +135,12 @@ public class JournalLifeCycleTest {
         JournalTestUtil.deleteFiles();
     }
 
-    private EventBatch<SimpleModelEvent> createEventBatch() {
+    private DefaultChronicleBatch<SimpleModelEvent> createEventBatch() {
         List<SimpleModelEvent> entries = new ArrayList<SimpleModelEvent>();
         Map<String, String> attributes = new HashMap<String, String>();
         attributes.put("ouse", "Ofip");
         attributes.put("gaotag", "ZR77:131021:12");
         entries.add( new SimpleModelEvent(DmlType.INSERT, "hub_order", attributes ) );
-        return new ChronicleBatch<SimpleModelEvent>( entries, SimpleModelEvent.class );
+        return JournalTestUtil.createChronicleBatch( entries, SimpleModelEvent.class );
     }
 }

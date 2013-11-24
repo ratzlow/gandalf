@@ -1,8 +1,10 @@
 package net.gandalf.journal.common;
 
-import net.gandalf.journal.chronicle.ChronicleBatch;
+import net.gandalf.journal.chronicle.BatchDecoratorRegistry;
+import net.gandalf.journal.chronicle.ChronicleBatchDecorator;
 import net.gandalf.journal.sample.mapevent.DmlType;
 import net.gandalf.journal.sample.mapevent.SimpleModelEvent;
+import net.gandalf.journal.sample.mapevent.Sizeable;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -22,18 +24,21 @@ public abstract class JournalTestUtil {
     private static final boolean deleteFiles = true;
     private static final String basePath = "C:/temp/delete.";
 
-    public static List<ChronicleBatch> createEventBatches( int batchCount, int eventsCount) {
+    public static List<DefaultChronicleBatch> createEventBatches( int batchCount, int eventsCount) {
         LOGGER.info( "Start creating batches ...");
         long start = System.currentTimeMillis();
-        List<ChronicleBatch> batches = new ArrayList<ChronicleBatch>();
+        List<DefaultChronicleBatch> batches = new ArrayList<DefaultChronicleBatch>();
         for (int i=0; i<batchCount; i++) {
             List<SimpleModelEvent> events = new ArrayList<SimpleModelEvent>(createEvents(eventsCount));
-            batches.add( new ChronicleBatch<SimpleModelEvent>(events, SimpleModelEvent.class) );
+            batches.add( createChronicleBatch(events, SimpleModelEvent.class) );
         }
         LOGGER.info("Created " + batchCount + " batches in ms = " + (System.currentTimeMillis() - start));
         return batches;
     }
 
+    public static <E extends Sizeable> DefaultChronicleBatch<E> createChronicleBatch(List<E> entries, Class<E> clazz ) {
+        return new DefaultChronicleBatch<E>(entries, clazz );
+    }
 
     public static String createLogFileNameRandom(String name) {
         return createLogFileNameFixed(UUID.randomUUID().toString() + "." + name);
@@ -57,6 +62,27 @@ public abstract class JournalTestUtil {
         }
     }
 
+
+
+
+    public static BatchDecoratorRegistry createDefaultChronicleBatchRegistry() {
+        BatchDecoratorRegistry registry = new BatchDecoratorRegistry();
+        registry.add( DefaultChronicleBatch.class, new ChronicleBatchDecorator<DefaultChronicleBatch>() {
+            @Override
+            public long getSize(DefaultChronicleBatch batch) { return batch.getSize(); }
+
+            @Override
+            public void setIndex(DefaultChronicleBatch batch, long index) { batch.setIndex( index ); }
+
+            @Override
+            public long getIndex(DefaultChronicleBatch batch) { return batch.getIndex(); }
+
+            @Override
+            public Class<DefaultChronicleBatch> getMarshallableClass() { return DefaultChronicleBatch.class; }
+        });
+
+        return registry;
+    }
 
     private static Collection<SimpleModelEvent> createEvents( int eventsCount ) {
         Collection<SimpleModelEvent> events = new ArrayList<SimpleModelEvent>();

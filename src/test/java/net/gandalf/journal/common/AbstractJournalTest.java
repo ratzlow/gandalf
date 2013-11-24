@@ -1,7 +1,6 @@
 package net.gandalf.journal.common;
 
 import net.gandalf.journal.api.*;
-import net.gandalf.journal.chronicle.ChronicleBatch;
 import org.apache.log4j.Logger;
 import org.junit.*;
 
@@ -27,8 +26,8 @@ public abstract class AbstractJournalTest {
 
     public final static int batchCount = 1000;
     public final static int eventsCount = 100;
-    protected static List<ChronicleBatch> producedBatches = new ArrayList<ChronicleBatch>();
-    protected List<ChronicleBatch> consumedBatches = new ArrayList<ChronicleBatch>();
+    protected static List<DefaultChronicleBatch> producedBatches = new ArrayList<DefaultChronicleBatch>();
+    protected List<DefaultChronicleBatch> consumedBatches = new ArrayList<DefaultChronicleBatch>();
 
     protected Map<String, Double> consumerDurations = new HashMap<String, Double>();
     protected long  producerDuration = 0;
@@ -42,14 +41,14 @@ public abstract class AbstractJournalTest {
         final AtomicLong producerDuration = new AtomicLong(0);
         final CountDownLatch producerLatch = new CountDownLatch(batchCount);
         ExecutorService producer = Executors.newSingleThreadExecutor();
-        final Writer<ChronicleBatch> writer = journal.createWriter();
+        final Writer writer = journal.createWriter();
         writer.start();
         producer.submit(new Runnable() {
             @Override
             public void run() {
                 long startProducer = System.nanoTime();
 
-                for (ChronicleBatch batch : producedBatches) {
+                for (DefaultChronicleBatch batch : producedBatches) {
                     long index = writer.add(batch);
                     if (index > batchCount)
                         LOGGER.error("found too high index");//Assert.assertTrue( index < batchCount );
@@ -78,7 +77,7 @@ public abstract class AbstractJournalTest {
 
         final ExecutorService consumer = Executors.newSingleThreadExecutor();
 
-        final Reader reader = journal.createReader(new ReaderStart<ChronicleBatch>(listener));
+        final Reader reader = journal.createReader(new ReaderStart(listener));
         consumer.submit( new Runnable() {
             @Override
             public void run() {

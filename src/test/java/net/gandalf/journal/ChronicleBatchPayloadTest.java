@@ -1,7 +1,7 @@
 package net.gandalf.journal;
 
 import net.gandalf.journal.api.*;
-import net.gandalf.journal.chronicle.ChronicleBatch;
+import net.gandalf.journal.common.DefaultChronicleBatch;
 import net.gandalf.journal.chronicle.ChronicleJournal;
 import net.gandalf.journal.common.AbstractJournalTest;
 import net.gandalf.journal.common.JournalTestUtil;
@@ -17,6 +17,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
+import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleBatchRegistry;
+
 /**
  * TODO: comment
  *
@@ -30,14 +32,13 @@ public class ChronicleBatchPayloadTest extends AbstractJournalTest {
     @Test
     public void testPayloadReadWrite() throws InterruptedException {
         final Journal journal = new ChronicleJournal(
-                JournalTestUtil.createLogFileNameRandom("payloadCompare"), SimpleModelEvent.class );
+                JournalTestUtil.createLogFileNameRandom("payloadCompare"), createDefaultChronicleBatchRegistry() );
         Assert.assertFalse(producedBatches.isEmpty());
-        final ChronicleBatch chronicleBatch = producedBatches.get(0);
         producerDuration = writeToJournal(journal);
 
         final CountDownLatch latch = new CountDownLatch(producedBatches.size());
-        PayloadCompareListener listener = new PayloadCompareListener( chronicleBatch, latch );
-        final ReaderStart<ChronicleBatch> start = new ReaderStart<ChronicleBatch>(listener);
+        PayloadCompareListener listener = new PayloadCompareListener( latch );
+        final ReaderStart start = new ReaderStart(listener);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.submit(new Runnable() {
             @Override
@@ -53,27 +54,27 @@ public class ChronicleBatchPayloadTest extends AbstractJournalTest {
 
 
 
-    private class PayloadCompareListener implements JournalUpdateListener<ChronicleBatch> {
+    private class PayloadCompareListener implements JournalUpdateListener<DefaultChronicleBatch> {
         final AtomicLong duration = new AtomicLong();
         final long start = System.currentTimeMillis();
-        final ChronicleBatch expected;
         final CountDownLatch latch;
 
-        private PayloadCompareListener(ChronicleBatch expected, CountDownLatch latch) {
-            this.expected = expected;
+        private PayloadCompareListener(CountDownLatch latch) {
             this.latch = latch;
         }
 
         @Override
-        public void onEvent(ChronicleBatch batch) {
-            latch.countDown();
+        public void onEvent(DefaultChronicleBatch batch) {
+            int index = (int) (producedBatches.size() - latch.getCount());
+            DefaultChronicleBatch expected = producedBatches.get(index);
             compareBatches(expected, batch);
+            latch.countDown();
             if ( latch.getCount() == 0 ) {
                 duration.set( System.currentTimeMillis() - start );
             }
         }
 
-        void compareBatches(ChronicleBatch<SimpleModelEvent> expected, ChronicleBatch<SimpleModelEvent> actual) {
+        void compareBatches(DefaultChronicleBatch<SimpleModelEvent> expected, DefaultChronicleBatch<SimpleModelEvent> actual) {
             Assert.assertTrue( actual.getIndex() > -1 );
             Assert.assertFalse(actual.getEntries().isEmpty());
             Assert.assertEquals(expected.getSize(), actual.getSize());
@@ -87,7 +88,6 @@ public class ChronicleBatchPayloadTest extends AbstractJournalTest {
         void compareEvent(SimpleModelEvent expected, SimpleModelEvent actual) {
             Assert.assertEquals( expected.getDmlType(), actual.getDmlType() );
             Assert.assertEquals( expected.getEntityName(), actual.getEntityName() );
-            Assert.assertEquals( expected.getEntryType(), actual.getEntryType() );
             Assert.assertEquals( expected.getSize(), actual.getSize() );
             Assert.assertEquals( expected.getAttributes().size(), actual.getAttributes().size() );
             for (String key : actual.getAttributes().keySet()) {

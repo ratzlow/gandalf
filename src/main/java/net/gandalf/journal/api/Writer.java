@@ -8,9 +8,9 @@ package net.gandalf.journal.api;
  * @author ratzlow@gmail.com
  * @since 2013-10-19
  */
-public interface Writer<T extends EventBatch> {
+public interface Writer {
 
-    long add(T entry);
+    <T> long add(T entry);
 
     void start();
 

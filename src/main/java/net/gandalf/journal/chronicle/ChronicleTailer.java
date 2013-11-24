@@ -24,7 +24,8 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
     private final AtomicLong entriesDispatched = new AtomicLong(0);
 
     private final ExcerptTailer tailer;
-    private final JournalUpdateListener<ChronicleBatch> listener;
+    private final JournalUpdateListener listener;
+    private final BatchDecoratorRegistry decoratorRegistry;
     private final int timeout;
     private final long startIndex;
 
@@ -37,18 +38,22 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
      * Construct a new reader. Not keeping any state.
      *
      * @param fileName the chronicle journal file
+     * @param decoratorRegistry registry that knows how to deal with given batch types
      * @param strategy specifies how to read the journal
      */
-    ChronicleTailer(String fileName, ReaderStart<ChronicleBatch> strategy) {
+    ChronicleTailer(String fileName, BatchDecoratorRegistry decoratorRegistry, ReaderStart strategy) {
+
         super(fileName);
 
         if (strategy.getListener() == null) {
             throw new IllegalArgumentException("No listener specified!");
         }
 
+        this.decoratorRegistry = decoratorRegistry;
         this.listener = strategy.getListener();
         this.timeout = strategy.getTimeout();
         this.startIndex = strategy.getStartIndex();
+
         try {
             tailer = chronicle.createTailer();
         } catch (IOException e) {
@@ -58,32 +63,40 @@ class ChronicleTailer extends AbstractChronicleJournal implements Reader {
 
     private void listen() {
 
-        final BytesMarshaller<ChronicleBatch> marshaller =
-                tailer.bytesMarshallerFactory().acquireMarshaller(ChronicleBatch.class, true);
-
         while (started.get()) {
+            try {
+                readEntry();
+            } catch (Exception e) {
+                LOGGER.error( "Could not read entry from journal!", e );
+            }
+        }
+    }
 
-            boolean validExcerptFound = tailer.nextIndex();
-            if (validExcerptFound) {
-                long currentIndex = tailer.index();
-                if (currentIndex >= startIndex) {
-                    ChronicleBatch eventBatch = marshaller.read(tailer);
-                    tailer.finish();
-                    if ( LOGGER.isDebugEnabled() ) {
-                        LOGGER.debug("Process batch.index=" + eventBatch.getIndex() );
-                    }
-                    listener.onEvent(eventBatch);
-                    entriesDispatched.incrementAndGet();
+    private <T> void readEntry() {
+        boolean validExcerptFound = tailer.nextIndex();
+        if (validExcerptFound) {
+            long currentIndex = tailer.index();
+            if (currentIndex >= startIndex) {
+                String batchClazzName = tailer.readUTF();
+                ChronicleBatchDecorator<T> decorator = decoratorRegistry.getDecorator(batchClazzName);
+                Class<T> marshallable = decorator.getMarshallableClass();
+                BytesMarshaller<T> marshaller = tailer.bytesMarshallerFactory().acquireMarshaller(marshallable, true);
+                T eventBatch = marshaller.read(tailer);
+                tailer.finish();
+                if ( LOGGER.isDebugEnabled() ) {
+                    LOGGER.debug("Process batch.index= " + decorator.getIndex( eventBatch ) );
                 }
+                listener.onEvent(eventBatch);
+                entriesDispatched.incrementAndGet();
+            }
 
-            } else {
+        } else {
 
-                if (timeout > 0) {
-                    try {
-                        Thread.sleep(timeout);
-                    } catch (InterruptedException e) {
-                        throw new JournalException(e);
-                    }
+            if (timeout > 0) {
+                try {
+                    Thread.sleep(timeout);
+                } catch (InterruptedException e) {
+                    throw new JournalException(e);
                 }
             }
         }

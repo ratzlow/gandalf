@@ -8,9 +8,9 @@ package net.gandalf.journal.api;
  */
 public interface Journal {
 
-    <T extends EventBatch> Reader createReader(ReaderStart<T> strategy);
+    Reader createReader(ReaderStart strategy);
 
-    <T extends EventBatch> Writer<T> createWriter();
+    Writer createWriter();
 
     void stop();
 

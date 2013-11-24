@@ -1,9 +1,8 @@
 package net.gandalf.journal.sample.obj2journal;
 
-import net.gandalf.journal.api.EventBatch;
 import net.gandalf.journal.api.Journal;
 import net.gandalf.journal.api.Writer;
-import net.gandalf.journal.chronicle.ChronicleBatch;
+import net.gandalf.journal.common.DefaultChronicleBatch;
 import net.gandalf.journal.chronicle.ChronicleJournal;
 import net.gandalf.journal.common.JournalTestUtil;
 import org.apache.log4j.Logger;
@@ -15,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleBatchRegistry;
 
 /**
  * TODO: comment
@@ -30,26 +31,26 @@ public class OptimizedEventWriterTest {
     @Test
     public void testWriteAsObjects() {
         String fileName = JournalTestUtil.createLogFileNameRandom("specialObjWrite");
-        Journal journal = new ChronicleJournal(fileName, FastModelEvent.class);
-        Writer<EventBatch> writer = journal.createWriter();
+        Journal journal = new ChronicleJournal(fileName, createDefaultChronicleBatchRegistry());
+        Writer writer = journal.createWriter();
         writer.start();
 
         long writerStart = System.currentTimeMillis();
-        List<EventBatch> batches = createBatches();
-        for (EventBatch batch : batches) {
+        List<DefaultChronicleBatch> batches = createBatches();
+        for (DefaultChronicleBatch batch : batches) {
             writer.add(batch);
         }
         LOGGER.info("Finished writing batches to chronicle (ms) =" + (System.currentTimeMillis() - writerStart));
         journal.stop();
     }
 
-    private List<EventBatch> createBatches() {
+    private List<DefaultChronicleBatch> createBatches() {
         long start = System.currentTimeMillis();
         LOGGER.info("Start creating batches ...");
-        List<EventBatch> batches = new ArrayList<EventBatch>();
+        List<DefaultChronicleBatch> batches = new ArrayList<DefaultChronicleBatch>();
         for ( int i=0; i < batchCount; i++) {
             List<FastModelEvent> entries = createEntries();
-            EventBatch batch = new ChronicleBatch<FastModelEvent>(entries, FastModelEvent.class);
+            DefaultChronicleBatch<FastModelEvent> batch = JournalTestUtil.createChronicleBatch(entries, FastModelEvent.class);
             batches.add( batch );
         }
 
@@ -80,7 +81,5 @@ public class OptimizedEventWriterTest {
             entries.add(new FastModelEvent(values));
         }
         return entries;
-
     }
-
 }

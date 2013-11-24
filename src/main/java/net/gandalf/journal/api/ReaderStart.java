@@ -7,8 +7,8 @@ package net.gandalf.journal.api;
  * @since 2013-11-03
  */
 // TODO: remove generics from class
-public class ReaderStart<E extends EventBatch> {
-    private final JournalUpdateListener<E> listener;
+public class ReaderStart {
+    private final JournalUpdateListener listener;
     private final int timeout;
     private final long startIndex;
 
@@ -16,13 +16,13 @@ public class ReaderStart<E extends EventBatch> {
     // constructor
     //
 
-    public ReaderStart(JournalUpdateListener<E> listener) {
+    public ReaderStart(JournalUpdateListener listener) {
         this.listener = listener;
         this.timeout = 0;
         this.startIndex = 0;
     }
 
-    public ReaderStart(JournalUpdateListener<E> listener, int timeout, long startIndex) {
+    public ReaderStart(JournalUpdateListener listener, int timeout, long startIndex) {
         this.listener = listener;
         this.timeout = timeout;
         this.startIndex = startIndex;
@@ -32,7 +32,7 @@ public class ReaderStart<E extends EventBatch> {
     // accessors
     //
 
-    public JournalUpdateListener<E> getListener() {
+    public JournalUpdateListener getListener() {
         return listener;
     }
 

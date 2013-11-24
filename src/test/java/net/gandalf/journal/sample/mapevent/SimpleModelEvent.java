@@ -1,8 +1,6 @@
 package net.gandalf.journal.sample.mapevent;
 
 
-import net.gandalf.journal.api.EntryType;
-import net.gandalf.journal.chronicle.ChronicleEntry;
 import net.openhft.lang.io.Bytes;
 import net.openhft.lang.io.serialization.BytesMarshallable;
 
@@ -16,7 +14,7 @@ import java.util.Map;
  * @author ratzlow@gmail.com
  * @since 2013-09-28
  */
-public class SimpleModelEvent implements ChronicleEntry, BytesMarshallable {
+public class SimpleModelEvent implements Sizeable, BytesMarshallable {
 
     private DmlType dmlType;
     private String entityName;
@@ -72,14 +70,10 @@ public class SimpleModelEvent implements ChronicleEntry, BytesMarshallable {
         out.writeMap(attributes);
     }
 
-    @Override
-    public EntryType getEntryType() {
-        return OrderHubEntryType.MODEL_UPDATE;
-    }
-
     /**
      * @return approximative value
      */
+    @Override
     public int getSize() {
         return size;
     }

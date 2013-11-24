@@ -1,8 +1,7 @@
 package net.gandalf.journal.sample.obj2journal;
 
-import net.gandalf.journal.api.EntryType;
 import net.gandalf.journal.api.JournalException;
-import net.gandalf.journal.chronicle.ChronicleEntry;
+import net.gandalf.journal.sample.mapevent.Sizeable;
 import net.openhft.lang.io.Bytes;
 import net.openhft.lang.io.serialization.BytesMarshallable;
 
@@ -15,7 +14,7 @@ import java.util.Map;
  * @author ratzlow@gmail.com
  * @since 2013-11-12
  */
-public class FastModelEvent implements ChronicleEntry, BytesMarshallable {
+public class FastModelEvent implements Sizeable, BytesMarshallable {
 
     private Map<ModelDD, Object> entries;
 
@@ -47,10 +46,5 @@ public class FastModelEvent implements ChronicleEntry, BytesMarshallable {
     @Override
     public int getSize() {
         return getClass().getCanonicalName().length();
-    }
-
-    @Override
-    public EntryType getEntryType() {
-        return null;
     }
 }
