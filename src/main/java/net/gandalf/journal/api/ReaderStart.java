@@ -16,12 +16,26 @@ public class ReaderStart {
     // constructor
     //
 
+    /**
+     * Start a reader from the beginning of the journal, so processing everything. The consumer thread will not pause
+     * but busuy spin. This will produce the least latency but contribute to higher CPU consumption.
+     *
+     * @param listener callback invoked on the occurence of a new batch read from the journal.
+     */
     public ReaderStart(JournalUpdateListener listener) {
         this.listener = listener;
         this.timeout = 0;
         this.startIndex = 0;
     }
 
+
+    /**
+     * Flexible strategy to modify the listening behaviour in terms of when to start and how eager to look for new
+     * entries.
+     * @param listener invoked on new event
+     * @param timeout time to wait if no new event could be fetched from journal
+     * @param startIndex from what index on invoke listener. Needed e.g. for replay/recovery scenarios.
+     */
     public ReaderStart(JournalUpdateListener listener, int timeout, long startIndex) {
         this.listener = listener;
         this.timeout = timeout;

@@ -25,6 +25,7 @@ import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleB
  * @author ratzlow@gmail.com
  * @since 2013-11-14
  */
+// TODO: add test case for pause on producer side of n sec and pickup of events after this delay; consumer idles for a while
 public class ChronicleBatchPayloadTest extends AbstractJournalTest {
 
     private static final Logger LOGGER = Logger.getLogger( ChronicleBatchPayloadTest.class );

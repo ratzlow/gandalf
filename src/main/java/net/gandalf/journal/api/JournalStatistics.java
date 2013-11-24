@@ -1,7 +1,10 @@
 package net.gandalf.journal.api;
 
 /**
- * Expose statistics of the journal
+ * Expose statistics of the journal.
+ *
+ * @author ratzlow@gmail.com
+ * @since 2013-10-05
  */
 public interface JournalStatistics {
 

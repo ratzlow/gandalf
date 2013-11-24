@@ -23,8 +23,8 @@ import static net.gandalf.journal.common.JournalTestUtil.createDefaultChronicleB
  * @author ratzlow@gmail.com
  * @since 2013-11-12
  */
-public class OptimizedEventWriterTest {
-    private static Logger LOGGER = Logger.getLogger(OptimizedEventWriterTest.class);
+public class SpezializedWriterStrategiesTest {
+    private static Logger LOGGER = Logger.getLogger(SpezializedWriterStrategiesTest.class);
     private final int batchCount = 1000;
     private final int eventsCount = 1000;
 
