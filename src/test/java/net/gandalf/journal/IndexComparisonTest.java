@@ -3,6 +3,7 @@ package net.gandalf.journal;
 import net.openhft.chronicle.ChronicleConfig;
 import net.openhft.chronicle.ExcerptAppender;
 import net.openhft.chronicle.IndexedChronicle;
+import org.apache.log4j.Logger;
 import org.junit.*;
 
 import java.io.File;
@@ -13,7 +14,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Verify sequence of writer is monoton rising.
+ * Verify sequence of writer is monoton rising. The sequences are not monoton rising since some buckets might be padded.
  *
  * @author ratzlow@gmail.com
  * @since 2013-11-05
@@ -21,27 +22,41 @@ import java.util.UUID;
 @Ignore
 public class IndexComparisonTest {
 
+    private static final Logger LOGGER = Logger.getLogger(IndexComparisonTest.class);
+
     private String basePath = "C:/temp/testChronicle";
     private final Map<String, String> values = createValues();
     private IndexedChronicle chronicle;
     private ExcerptAppender appender;
 
     @Test
-    public void testIndexClimbing() throws IOException {
+    public void testWriteBigChronicle() throws IOException {
         String path = basePath + "simpleStringWrite";
         IndexedChronicle indexedChronicle = new IndexedChronicle(path);
         ExcerptAppender excerptAppender = indexedChronicle.createAppender();
 
-        String randomString = UUID.randomUUID().toString() + UUID.randomUUID().toString() + UUID.randomUUID().toString();
-        int noEntries = 10000000;
+        String randomString1024Bytes = createTestString();
+        int MIO = 1024 * 1024;
+        int BIL = 1024 * MIO;
+
+        long start = System.currentTimeMillis();
+        int noEntries = 2 * MIO;
         for (int i=0; i < noEntries; i++ ) {
-            excerptAppender.startExcerpt(120);
-            long index = excerptAppender.index();
-            Assert.assertEquals(i, index);
-            excerptAppender.writeUTF( randomString );
+            excerptAppender.startExcerpt(1050);
+            excerptAppender.writeUTF( randomString1024Bytes );
             excerptAppender.finish();
         }
         indexedChronicle.close();
+        LOGGER.info("Finished writing " + noEntries + " entries with each size " + randomString1024Bytes.length() +
+                " duration (ms) " + (System.currentTimeMillis() - start)) ;
+    }
+
+    private String createTestString() {
+        StringBuilder sb = new StringBuilder();
+        for ( int i=0; i < 29; i++ )
+            sb.append( UUID.randomUUID().toString() );
+
+        return sb.toString().substring(0, 1024);
     }
 
     @Test

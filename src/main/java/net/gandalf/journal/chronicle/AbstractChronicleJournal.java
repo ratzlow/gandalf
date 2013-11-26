@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 // TODO (FRa) : (FRa) : do we need to take control of the sequence?
 // TODO (FRa) : (FRa) : delegate logger creation to factory
+// TODO (FRa) : (FRa) : add viewer and modify tools for binary log
 abstract class AbstractChronicleJournal {
     protected final AtomicBoolean started = new AtomicBoolean(false);
     protected IndexedChronicle chronicle;
