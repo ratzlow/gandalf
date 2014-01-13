@@ -20,9 +20,11 @@ import java.util.*;
  * @since 2013-11-04
  */
 public abstract class JournalTestUtil {
+    public static final String TMP_DIR = "./tmp";
     private static final Logger LOGGER = Logger.getLogger(JournalTestUtil.class);
     private static final boolean deleteFiles = true;
-    private static final String basePath = "C:/temp/delete.";
+
+    private static final String basePath = TMP_DIR + "/delete.";
 
     public static List<DefaultChronicleBatch> createEventBatches( int batchCount, int eventsCount) {
         LOGGER.info( "Start creating batches ...");
@@ -50,7 +52,7 @@ public abstract class JournalTestUtil {
 
     public static void deleteFiles() {
         if (deleteFiles) {
-            File[] deleteCandidates = new File("C:\\temp").listFiles(new FileFilter() {
+            File[] deleteCandidates = new File(TMP_DIR).listFiles(new FileFilter() {
                 @Override
                 public boolean accept(File pathname) {
                     return pathname.getName().startsWith("delete.");

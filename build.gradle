@@ -2,6 +2,21 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.7
 version = '0.8.5'
+File tmpDir = new File('./tmp')
+
+task postClean(dependsOn: 'clean') {
+    if ( tmpDir.exists() ) {
+        println 'Remove test files'
+        tmpDir.deleteDir()
+    }
+}
+
+task preProcessTestResources(dependsOn: 'processTestResources') {
+    if ( !tmpDir.exists() ) {
+        tmpDir.mkdir()
+    }
+}
+
 jar {
     manifest {
         attributes 'Implementation-Title': 'Eventsourcing Journal', 'Implementation-Version': version

@@ -113,7 +113,7 @@ public class JournalLifeCycleTest {
      */
     // TODO (FRa) : (FRa) : rewrite this file filter -> ugly
     private boolean chronicleFilesExist( final String pathPrefix) {
-        File[] files = new File("C:/Temp").listFiles(new FilenameFilter() {
+        File[] files = new File(JournalTestUtil.TMP_DIR).listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 String dataName = pathPrefix + ".data";

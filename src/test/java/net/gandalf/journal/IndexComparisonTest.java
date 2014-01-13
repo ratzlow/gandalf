@@ -1,5 +1,6 @@
 package net.gandalf.journal;
 
+import net.gandalf.journal.common.JournalTestUtil;
 import net.openhft.chronicle.ChronicleConfig;
 import net.openhft.chronicle.ExcerptAppender;
 import net.openhft.chronicle.IndexedChronicle;
@@ -24,7 +25,7 @@ public class IndexComparisonTest {
 
     private static final Logger LOGGER = Logger.getLogger(IndexComparisonTest.class);
 
-    private String basePath = "C:/temp/testChronicle";
+    private String basePath = JournalTestUtil.TMP_DIR + "/testChronicle";
     private final Map<String, String> values = createValues();
     private IndexedChronicle chronicle;
     private ExcerptAppender appender;
@@ -127,7 +128,7 @@ public class IndexComparisonTest {
 
 
     private static void deleteFiles() {
-        String[] fileNames = new File("C:/temp").list(new FilenameFilter() {
+        String[] fileNames = new File(JournalTestUtil.TMP_DIR).list(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 return name.startsWith("testChronicle");
@@ -135,7 +136,7 @@ public class IndexComparisonTest {
         });
 
         for (String fileName : fileNames) {
-            new File("C:/temp", fileName).delete();
+            new File(JournalTestUtil.TMP_DIR, fileName).delete();
         }
     }
 
